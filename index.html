@@ -98,10 +98,52 @@
       border-radius: 20px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
+    /* Hearts */
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: floatHeart 6s linear infinite;
+    }
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+    @keyframes floatHeart {
+      0% { transform: translateY(0) rotate(45deg); opacity: 1; }
+      100% { transform: translateY(-800px) rotate(45deg); opacity: 0; }
+    }
+    /* Confetti */
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: yellow;
+      animation: fall 5s linear infinite;
+    }
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(800px) rotate(360deg); opacity: 0; }
+    }
   </style>
 </head>
 <body>
-  <h1>🎉 Happy Birthday, Bestie! 🎉</h1>
+  <h1>🎉 Happy Birthday 🎉</h1>
   <h2>💖 Wishing you a day filled with love, joy, and surprises 💖</h2>
   
   <div class="cake">
@@ -122,12 +164,23 @@
   <div class="balloon" style="left:60%; background:#1dd1a1; animation-delay: 4s;"></div>
   <div class="balloon" style="left:80%; background:#54a0ff; animation-delay: 6s;"></div>
 
+  <!-- Hearts -->
+  <div class="heart" style="left:15%; animation-delay: 0s;"></div>
+  <div class="heart" style="left:35%; animation-delay: 2s;"></div>
+  <div class="heart" style="left:55%; animation-delay: 4s;"></div>
+  <div class="heart" style="left:75%; animation-delay: 6s;"></div>
+
+  <!-- Confetti -->
+  <div class="confetti" style="left:10%; background:#ff4757; animation-delay: 0s;"></div>
+  <div class="confetti" style="left:30%; background:#2ed573; animation-delay: 1s;"></div>
+  <div class="confetti" style="left:50%; background:#1e90ff; animation-delay: 2s;"></div>
+  <div class="confetti" style="left:70%; background:#ffa502; animation-delay: 3s;"></div>
+  <div class="confetti" style="left:90%; background:#ff6b81; animation-delay: 4s;"></div>
+
   <!-- Background Music -->
   <audio autoplay loop>
     <source src="https://www2.cs.uic.edu/~i101/SoundFiles/HappyBirthday.mid" type="audio/midi">
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
-
 </body>
 </html>
